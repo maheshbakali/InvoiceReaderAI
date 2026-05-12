@@ -35,7 +35,7 @@ public class InvoiceController : ControllerBase
     [HttpPost("extract")]
     [ProducesResponseType(typeof(ExtractionResponse), 200)]
     [ProducesResponseType(typeof(ProblemDetails), 400)]
-    public async Task<IActionResult> Extract(
+    public async Task<IActionResult> ExtractAsync(
         [FromBody] ExtractionRequest request,
         CancellationToken ct)
     {
@@ -55,6 +55,6 @@ public class InvoiceController : ControllerBase
     /// Returns the invoice extraction system prompt (useful for debugging).
     /// </summary>
     [HttpGet("prompt")]
-    public IActionResult GetSystemPrompt() =>
+    public IActionResult GetSystemPromptAsync() =>
         Ok(new { systemPrompt = InvoicePrompts.SystemPrompt });
 }
