@@ -57,4 +57,8 @@ public class InvoiceController : ControllerBase
     [HttpGet("prompt")]
     public IActionResult GetSystemPromptAsync() =>
         Ok(new { systemPrompt = InvoicePrompts.SystemPrompt });
+
+    [HttpGet("userprompt")]
+    public IActionResult GetSystemPromptAsync() =>
+        Ok(new { systemPrompt = InvoicePrompts.BuildExtractionPrompt });
 }
